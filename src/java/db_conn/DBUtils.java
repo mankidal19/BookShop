@@ -12,14 +12,40 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import db_conn.ConnectionUtils;
 
 /**
  *
  * @author PCUSER
  */
 public class DBUtils {
-    public static List<CatalogItem> queryAllBook(Connection conn) throws SQLException {
-       String sql = "Select * from Application ";
+    public static List<CatalogItem> queryAllBook() throws SQLException, ClassNotFoundException {
+       Connection conn = ConnectionUtils.getConnection();
+       String sql = "Select * from catalogitem ";
+
+       PreparedStatement pstm = conn.prepareStatement(sql);
+
+       ResultSet rs = pstm.executeQuery();
+       List<CatalogItem> list = new ArrayList<CatalogItem>();
+       while (rs.next()) {
+
+            String itemID = rs.getString("itemID");
+            String shortDescription = rs.getString("shortDescription");
+            String longDescription = rs.getString("longDescription");
+            double cost = rs.getDouble("cost");
+            String bookType = rs.getString("bookType");
+
+
+           CatalogItem book = new CatalogItem( itemID,  shortDescription, longDescription,  cost,  bookType);
+
+           list.add(book);
+       }
+       return list;
+   }
+    
+    public static List<CatalogItem> queryKidBook() throws SQLException, ClassNotFoundException {
+       Connection conn = ConnectionUtils.getConnection();
+       String sql = "Select * from catalogitem WHERE bookType='K'";
 
        PreparedStatement pstm = conn.prepareStatement(sql);
 

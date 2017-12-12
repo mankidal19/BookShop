@@ -1,5 +1,11 @@
 package coreservlets;
 
+import db_conn.ConnectionUtils;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /** A specialization of the CatalogPage servlet that
  *  displays a page selling three famous kids-book series.
  *  Orders are sent to the OrderPage servlet.
