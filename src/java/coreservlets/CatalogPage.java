@@ -1,6 +1,11 @@
 package coreservlets;
 
+import db_conn.ConnectionUtils;
+import db_conn.DBUtils;
 import java.io.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -84,7 +89,17 @@ public abstract class CatalogPage extends HttpServlet {
                 "<BODY BGCOLOR=\"#FDF5E6\">\n" +
                 "<H1 ALIGN=\"CENTER\">" + title + "</H1>");
     CatalogItem item;
-    for(int i=0; i<items.length; i++) {
+    
+    List<CatalogItem> items = null;
+  
+    Connection conn = ConnectionUtils.getConnection();
+    try {
+        items = DBUtils.queryAllBook(conn);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    for(int i=0; i<items.size(); i++) {
       out.println("<HR>");
       item = items[i];
       // Show error message if subclass lists item ID

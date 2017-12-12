@@ -23,7 +23,7 @@ public class Catalog {
          "and JSP from Prentice Hall and \n" +
          "Sun Microsystems Press.<P>Nominated for " +
          "the Nobel Prize in Literature.",
-       39.95),
+       39.95, "t"),
       new CatalogItem
         ("hall002",
          "<I>Core Web Programming, 2nd Edition</I> " +
@@ -39,7 +39,7 @@ public class Catalog {
            "servlets, and JavaServer Pages.\n" +
            "<LI>A quick overview of JavaScript 1.2\n" +
            "</UL>",
-         49.99),
+         49.99, "t"),
       new CatalogItem
         ("lewis001",
          "<I>The Chronicles of Narnia</I> by C.S. Lewis",
@@ -56,7 +56,7 @@ public class Catalog {
            "<I>The Voyage of the Dawn Treader</I>,\n" +
            "<I>The Silver Chair</I>, and \n" +
            "<I>The Last Battle</I>.",
-         19.95),
+         19.95, "c"),
       new CatalogItem
         ("alexander001",
          "<I>The Prydain Series</I> by Lloyd Alexander",
@@ -73,7 +73,7 @@ public class Catalog {
            "<I>The Castle of Llyr</I>,\n" +
            "<I>Taran Wanderer</I>, and\n" +
            "<I>The High King</I>.",
-         19.95),
+         19.95, "c"),
       new CatalogItem
         ("rowling001",
          "<I>The Harry Potter Series</I> by J.K. Rowling",
@@ -88,7 +88,7 @@ public class Catalog {
            "<I>Harry Potter and the Goblet of Fire</I>, and\n" +
            "<I>Harry Potter and the "+
            "Order of the Phoenix</I>.\n",
-         59.95)
+         59.95, "c")
         };
 
   public static CatalogItem getItem(String itemID) {

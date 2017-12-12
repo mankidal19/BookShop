@@ -19,13 +19,23 @@ public class CatalogItem {
   private String shortDescription;
   private String longDescription;
   private double cost;
+  private String bookType;
+
+    public String getBookType() {
+        return bookType;
+    }
+
+    public void setBookType(String bookType) {
+        this.bookType = bookType;
+    }
 
   public CatalogItem(String itemID, String shortDescription,
-                     String longDescription, double cost) {
+                     String longDescription, double cost, String bookType) {
     setItemID(itemID);
     setShortDescription(shortDescription);
     setLongDescription(longDescription);
     setCost(cost);
+    setBookType(bookType);
   }
     
   public String getItemID() {
