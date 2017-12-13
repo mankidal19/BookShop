@@ -60,6 +60,8 @@ a:active {
       <hr>
 	  <p><a href="btmFrame.jsp" target="mainFrame">Main Page</a><BR>
 	  <a href="./OrderPage" target="mainFrame">View Cart</a><BR>
+          <a href="./addBook" target="mainFrame">Add Book</a><BR>
+          <a href="./viewBook" target="mainFrame">View Books</a><BR>
     </p>
     </body>
 </html>

@@ -23,7 +23,7 @@ on Libraries node in Projects view can be used to add the JSTL 1.1 library.
     <frame src="topFrame.jsp" name="topFrame" scrolling="auto" noresize>
     <frame src="btmFrame.jsp" name="mainFrame">
   </frameset>
-</frameset>
+</frameset>              
 <noframes><body>
 </body></noframes>
 </html>
