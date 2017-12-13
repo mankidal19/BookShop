@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-import utils.DBUtils;
+import db_conn.*;
 import utils.MyUtils;
+
  
 @WebServlet(urlPatterns = { "/editBook" })
 public class editBook extends HttpServlet {
@@ -80,7 +81,7 @@ public class editBook extends HttpServlet {
             price = Float.parseFloat(priceStr);
         } catch (Exception e) {
         }
-        CatalogItem book = new CatalogItem(id, shortDesc, longDesc, type, price);
+        CatalogItem book = new CatalogItem(id, shortDesc, longDesc, price, type);
  
         String errorString = null;
  

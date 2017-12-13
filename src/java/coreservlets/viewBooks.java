@@ -1,3 +1,6 @@
+
+package coreservlets;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,8 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import db_conn.*;
 import utils.MyUtils;
-import coreservlets.*;
+
  
 @WebServlet(urlPatterns = { "/viewBooks" })
 public class viewBooks extends HttpServlet {
@@ -28,8 +33,8 @@ public class viewBooks extends HttpServlet {
         String errorString = null;
         List<CatalogItem> list = null;
         try {
-            list = DBUtils.queryProduct(conn);
-        } catch (SQLException e) {
+            list = DBUtils.queryAllBook();
+        } catch (Exception e) {
             e.printStackTrace();
             errorString = e.getMessage();
         }

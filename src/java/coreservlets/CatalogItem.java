@@ -31,11 +31,11 @@ public class CatalogItem {
 
   public CatalogItem(String itemID, String shortDescription,
                      String longDescription, double cost, String bookType) {
-    setItemID(itemID);
-    setShortDescription(shortDescription);
-    setLongDescription(longDescription);
-    setCost(cost);
-    setBookType(bookType);
+    this.setItemID(itemID);
+    this.setShortDescription(shortDescription);
+    this.setLongDescription(longDescription);
+    this.setCost(cost);
+    this.setBookType(bookType);
   }
     
   public String getItemID() {

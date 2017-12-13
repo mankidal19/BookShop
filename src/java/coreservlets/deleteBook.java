@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-import utils.DBUtils;
+import db_conn.*;
 import utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/deleteBook" })
@@ -37,7 +37,7 @@ public class deleteBook extends HttpServlet {
         String errorString = null;
  
         try {
-            DBUtils.deleteProduct(conn, id);
+            DBUtils.deleteBook(conn, id);
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();

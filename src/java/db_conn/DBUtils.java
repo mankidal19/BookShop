@@ -85,4 +85,68 @@ public class DBUtils {
        return list;
     }
 
+     public static void insertBook(Connection conn, CatalogItem book) throws SQLException {
+        String sql = "Insert into catalogitem(itemID, shortDescription, longDescription, cost, bookType) values (?,?,?,?,?)";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        pstm.setString(1, book.getItemID());
+        pstm.setString(2, book.getShortDescription());
+        pstm.setString(3, book.getLongDescription());
+        pstm.setDouble(4, book.getCost());
+        pstm.setString(5, book.getBookType());
+        
+ 
+        pstm.executeUpdate();
+    }
+ 
+    public static CatalogItem findBook(Connection conn, String code) throws SQLException {
+        String sql = "Select * from catalogitem where itemID=?";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+        pstm.setString(1, code);
+ 
+        ResultSet rs = pstm.executeQuery();
+ 
+        while (rs.next()) {
+            
+        String shortDesc = rs.getString("shortDescription");
+        String longDesc = rs.getString("longDescription");
+        String type = rs.getString("type");
+        double price = rs.getDouble("cost");
+            
+            
+            CatalogItem book = new CatalogItem(code, shortDesc, longDesc, price,type);
+            
+            return book;
+        }
+        return null;
+    }
+ 
+    public static void updateBook(Connection conn, CatalogItem book) throws SQLException {
+        String sql = "Update catalogitem set shortDescription=?, longDescription=?, cost=?, bookType=? where itemID=?";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        pstm.setString(5, book.getItemID());
+        pstm.setString(1, book.getShortDescription());
+        pstm.setString(2, book.getLongDescription());
+        pstm.setDouble(3, book.getCost());
+        pstm.setString(4, book.getBookType());
+        
+ 
+        pstm.executeUpdate();
+    }
+ 
+    public static void deleteBook(Connection conn, String code) throws SQLException {
+        String sql = "delete from catalogitem where itemID=?";
+ 
+        PreparedStatement pstm = conn.prepareStatement(sql);
+ 
+        pstm.setString(1, code);
+        
+ 
+        pstm.executeUpdate();
+    }
+ 
 }
