@@ -11,13 +11,7 @@
       <meta charset="UTF-8">
       <title>Add Book</title>
    </head>
-    <frameset rows="*" cols="220,*" frameborder="NO" border="0" framespacing="0">
-  <frame src="leftFrame.jsp" name="leftFrame" scrolling="auto" noresize>
-   
-  <frameset rows="200,*" frameborder="NO" border="0" framespacing="0">
-    <frame src="topFrame.jsp" name="topFrame" scrolling="auto" noresize>
-    </frameset>
-  </frameset>
+
  
    <body>
       <h3>Add Book</h3>
