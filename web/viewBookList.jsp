@@ -40,7 +40,7 @@
              <td>${book.itemID}</td>
              <td>${book.shortDescription}</td>
              <td>${book.cost}</td>
-             <td>${book.}</td>
+             <td>${book.bookType}</td>
              <td>
                 <a href="editBook?code=${book.itemID}">Edit</a>
              </td>
