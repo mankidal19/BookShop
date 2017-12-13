@@ -64,4 +64,25 @@ public class DBUtils {
        return list;
    }
 
+    public static List<String> queryTechBook() throws ClassNotFoundException, SQLException {
+        Connection conn = ConnectionUtils.getConnection();
+       String sql = "Select * from catalogitem WHERE bookType='T'";
+
+       PreparedStatement pstm = conn.prepareStatement(sql);
+
+       ResultSet rs = pstm.executeQuery();
+       List<String> list = new ArrayList<String>();
+       while (rs.next()) {
+
+            String itemID = rs.getString("itemID");
+//            String shortDescription = rs.getString("shortDescription");
+//            String longDescription = rs.getString("longDescription");
+//            double cost = rs.getDouble("cost");
+//            String bookType = rs.getString("bookType");
+
+           list.add(itemID);
+       }
+       return list;
+    }
+
 }
