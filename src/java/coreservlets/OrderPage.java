@@ -1,10 +1,13 @@
 package coreservlets;
 
 import java.io.*;
+import java.sql.SQLException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.*;
 import java.text.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /** Shows all items currently in ShoppingCart. Clients
  *  have their own session that keeps track of which
@@ -42,10 +45,16 @@ public class OrderPage extends HttpServlet {
         String numItemsString =
           request.getParameter("numItems");
         if (numItemsString == null) {
-          // If request specified an ID but no number,
-          // then customers came here via an "Add Item to Cart"
-          // button on a catalog page.
-          cart.addItem(itemID);
+            try {
+                // If request specified an ID but no number,
+                // then customers came here via an "Add Item to Cart"
+                // button on a catalog page.
+                cart.addItem(itemID);
+            } catch (SQLException ex) {
+                Logger.getLogger(OrderPage.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(OrderPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
           // If request specified an ID and number, then
           // customers came here via an "Update Order" button
@@ -58,7 +67,13 @@ public class OrderPage extends HttpServlet {
           } catch(NumberFormatException nfe) {
             numItems = 1;
           }
-          cart.setNumOrdered(itemID, numItems);
+            try {
+                cart.setNumOrdered(itemID, numItems);
+            } catch (SQLException ex) {
+                Logger.getLogger(OrderPage.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(OrderPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
       }
     }

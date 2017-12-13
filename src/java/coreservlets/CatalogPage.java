@@ -1,6 +1,8 @@
 package coreservlets;
 
 import java.io.*;
+import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -19,7 +21,7 @@ import javax.servlet.http.*;
 
 public abstract class CatalogPage extends HttpServlet {
   private CatalogItem[] items;
-  private String[] itemIDs;
+  private List<String> itemIDs;
   private String title;
 
   /** Given an array of item IDs, look them up in the
@@ -33,11 +35,11 @@ public abstract class CatalogPage extends HttpServlet {
    *  is accessed.
    */
   
-  protected void setItems(String[] itemIDs) {
+  protected void setItems(List<String> itemIDs) throws SQLException, ClassNotFoundException {
     this.itemIDs = itemIDs;
-    items = new CatalogItem[itemIDs.length];
+    items = new CatalogItem[itemIDs.size()];
     for(int i=0; i<items.length; i++) {
-      items[i] = Catalog.getItem(itemIDs[i]);
+      items[i] = Catalog.getItem(itemIDs.get(i));
     }
   }
 
@@ -91,7 +93,7 @@ public abstract class CatalogPage extends HttpServlet {
       // that's not in the catalog.
       if (item == null) {
         out.println("<FONT COLOR=\"RED\">" +
-                    "Unknown item ID " + itemIDs[i] +
+                    "Unknown item ID " + itemIDs.get(i) +
                     "</FONT>");
       } else {
         out.println();

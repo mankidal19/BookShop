@@ -43,26 +43,23 @@ public class DBUtils {
        return list;
    }
     
-    public static List<CatalogItem> queryKidBook() throws SQLException, ClassNotFoundException {
+    public static List<String> queryKidBook() throws SQLException, ClassNotFoundException {
        Connection conn = ConnectionUtils.getConnection();
        String sql = "Select * from catalogitem WHERE bookType='K'";
 
        PreparedStatement pstm = conn.prepareStatement(sql);
 
        ResultSet rs = pstm.executeQuery();
-       List<CatalogItem> list = new ArrayList<CatalogItem>();
+       List<String> list = new ArrayList<String>();
        while (rs.next()) {
 
             String itemID = rs.getString("itemID");
-            String shortDescription = rs.getString("shortDescription");
-            String longDescription = rs.getString("longDescription");
-            double cost = rs.getDouble("cost");
-            String bookType = rs.getString("bookType");
+//            String shortDescription = rs.getString("shortDescription");
+//            String longDescription = rs.getString("longDescription");
+//            double cost = rs.getDouble("cost");
+//            String bookType = rs.getString("bookType");
 
-
-           CatalogItem book = new CatalogItem( itemID,  shortDescription, longDescription,  cost,  bookType);
-
-           list.add(book);
+           list.add(itemID);
        }
        return list;
    }

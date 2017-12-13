@@ -1,5 +1,6 @@
 package coreservlets;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /** A shopping cart data structure used to track orders.
@@ -37,7 +38,7 @@ public class ShoppingCart {
    *  Item in catalog and adds an order entry for it.
    */
   
-  public synchronized void addItem(String itemID) {
+  public synchronized void addItem(String itemID) throws SQLException, ClassNotFoundException {
     ItemOrder order;
     for(int i=0; i<itemsOrdered.size(); i++) {
       order = (ItemOrder)itemsOrdered.get(i);
@@ -58,7 +59,7 @@ public class ShoppingCart {
    */
   
   public synchronized void setNumOrdered(String itemID,
-                                         int numOrdered) {
+                                         int numOrdered) throws SQLException, ClassNotFoundException {
     ItemOrder order;
     for(int i=0; i<itemsOrdered.size(); i++) {
       order = (ItemOrder)itemsOrdered.get(i);

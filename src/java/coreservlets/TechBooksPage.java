@@ -13,7 +13,7 @@ package coreservlets;
 public class TechBooksPage extends CatalogPage {
   public void init() {
     String[] ids = { "hall001", "hall002" };
-    setItems(ids);
+//    setItems(ids);
     setTitle("All-Time Best Computer Books");
   }
 }
