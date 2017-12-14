@@ -13,24 +13,24 @@
    </head>
 
  
-   <body>
+   <body bgcolor="E9F946">
       <h3>Add Book</h3>
        
       <p style="color: red;">${errorString}</p>
        
-      <form method="POST" action="${pageContext.request.contextPath}/addBook">
+      <form id="addBook" method="POST" action="${pageContext.request.contextPath}/addBook">
          <table border="0">
             <tr>
                <td>Item ID</td>
-               <td><input type="text" name="id" value="" /></td>
+               <td><input type="text" name="itemID" value="" /></td>
             </tr>
             <tr>
                <td>Short Description</td>
-               <td><input type="text" name="shortDescription" value="" /></td>
+               <td><textarea form="addBook" cols="50" rows="3" name="shortDescription" /></textarea></td>
             </tr>
             <tr>
                <td>Long Description</td>
-               <td><input type="text" name="longDescription" value="" /></td>
+               <td><textarea form="addBook" cols="50" rows="5" name="longDescription" /></textarea></td>
             </tr>
             <tr>
                <td>Type</td>

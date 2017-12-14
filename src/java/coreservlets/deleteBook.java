@@ -53,13 +53,13 @@ public class deleteBook extends HttpServlet {
             request.setAttribute("errorString", errorString);
             // 
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("/errorDeleteBookView.jsp");
+                    .getRequestDispatcher(request.getContextPath() + "/viewBooks");
             dispatcher.forward(request, response);
         }
         // If everything nice.
         // Redirect to the product listing page.        
         else {
-            response.sendRedirect("/viewBookList.jsp");
+            response.sendRedirect(request.getContextPath() + "/viewBooks");
         }
  
     }

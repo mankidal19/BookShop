@@ -18,7 +18,7 @@
        
       <p style="color: red;">${errorString}</p>
        
-      <form id="editBook" name="editBook" method="POST" action="/editBook">
+      <form id="editBook" name="editBook" method="POST" action="${pageContext.request.contextPath}/editBook">
          <table border="0">
             <tr>
                <td>Item ID</td>
@@ -26,11 +26,11 @@
             </tr>
             <tr>
                <td>Short Description</td>
-               <td><textarea form="editBook" cols="50" rows="3" name="shortDescription" value="${book.shortDescription}" />${book.shortDescription}</textarea></td>
+               <td><textarea form="editBook" cols="50" rows="3" name="shortDescription" />${book.shortDescription}</textarea></td>
             </tr>
             <tr>
                <td>Long Description</td>
-               <td><textarea form="editBook" cols="50" rows="5" name="longDescription" value="${book.longDescription}" />${book.longDescription}</textarea></td>
+               <td><textarea form="editBook" cols="50" rows="5" name="longDescription" />${book.longDescription}</textarea></td>
             </tr>
             <tr>
                <td>Type</td>

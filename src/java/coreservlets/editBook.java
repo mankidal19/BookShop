@@ -96,6 +96,7 @@ public class editBook extends HttpServlet {
             errorString = e.getMessage();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(editBook.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
@@ -110,7 +111,7 @@ public class editBook extends HttpServlet {
         // If everything nice.
         // Redirect to the product listing page.
         else {
-            response.sendRedirect("/viewBookList.jsp");
+            response.sendRedirect(request.getContextPath() + "/viewBooks");
         }
     }
  

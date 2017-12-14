@@ -51,9 +51,9 @@ public class addBook extends HttpServlet {
         String longDesc = (String) request.getParameter("longDescription");
         String type = (String) request.getParameter("type");
         String priceStr = (String) request.getParameter("price");
-        float price = 0;
+        double price = 0;
         try {
-            price = Float.parseFloat(priceStr);
+            price = Double.parseDouble(priceStr);
         } catch (Exception e) {
         }
         CatalogItem book = new CatalogItem(id, shortDesc, longDesc, price,type);
@@ -92,7 +92,7 @@ public class addBook extends HttpServlet {
         // If everything nice.
         // Redirect to the product listing page.
         else {
-            response.sendRedirect("/viewBookList.jsp");
+            response.sendRedirect(request.getContextPath() + "/viewBooks");
         }
     }
  
