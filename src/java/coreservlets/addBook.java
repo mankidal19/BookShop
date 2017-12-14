@@ -33,7 +33,7 @@ public class addBook extends HttpServlet {
             throws ServletException, IOException {
  
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("addBookView.jsp");
+                .getRequestDispatcher("/addBookView.jsp");
         dispatcher.forward(request, response);
     }
  
@@ -82,13 +82,13 @@ public class addBook extends HttpServlet {
         // If error, forward to Edit page.
         if (errorString != null) {
             RequestDispatcher dispatcher = request.getServletContext()
-                    .getRequestDispatcher("addBookView.jsp");
+                    .getRequestDispatcher("/addBookView.jsp");
             dispatcher.forward(request, response);
         }
         // If everything nice.
         // Redirect to the product listing page.
         else {
-            response.sendRedirect("viewBookList.jsp");
+            response.sendRedirect("/viewBookList.jsp");
         }
     }
  

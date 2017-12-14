@@ -13,6 +13,22 @@
         <servlet-class>coreservlets.OrderPage</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>viewBooks</servlet-name>
+        <servlet-class>coreservlets.viewBooks</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addBook</servlet-name>
+        <servlet-class>coreservlets.addBook</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editBook</servlet-name>
+        <servlet-class>coreservlets.editBook</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteBook</servlet-name>
+        <servlet-class>coreservlets.deleteBook</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TechBooksPage</servlet-name>
         <servlet-class>coreservlets.TechBooksPage</servlet-class>
     </servlet>
@@ -32,13 +48,29 @@
         <servlet-name>TechBooksPage</servlet-name>
         <url-pattern>/TechBooksPage</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewBooks</servlet-name>
+        <url-pattern>/viewBooks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addBook</servlet-name>
+        <url-pattern>/addBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editBook</servlet-name>
+        <url-pattern>/editBook</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteBook</servlet-name>
+        <url-pattern>/deleteBook</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-	<welcome-file>
+        <welcome-file>
             index.jsp
         </welcome-file>
     </welcome-file-list>

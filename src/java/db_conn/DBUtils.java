@@ -112,7 +112,7 @@ public class DBUtils {
             
         String shortDesc = rs.getString("shortDescription");
         String longDesc = rs.getString("longDescription");
-        String type = rs.getString("type");
+        String type = rs.getString("bookType");
         double price = rs.getDouble("cost");
             
             

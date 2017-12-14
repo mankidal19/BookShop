@@ -14,7 +14,7 @@
  </head>
 
  
- <body>
+ <body bgcolor="#CCFF99">
  
     <h3>Book List</h3>
  
@@ -26,7 +26,7 @@
           <th>Description</th>
           <th>Price</th>
           <th>Type</th>
-          <th>Action</th>
+          <th colspan="2">Action</th>
        </tr>
        <c:forEach items="${bookList}" var="book">
           <tr>

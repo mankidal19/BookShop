@@ -11,20 +11,14 @@
       <meta charset="UTF-8">
       <title>Edit Book</title>
    </head>
-    <frameset rows="*" cols="220,*" frameborder="NO" border="0" framespacing="0">
-  <frame src="leftFrame.jsp" name="leftFrame" scrolling="auto" noresize>
-   
-  <frameset rows="200,*" frameborder="NO" border="0" framespacing="0">
-    <frame src="topFrame.jsp" name="topFrame" scrolling="auto" noresize>
-    </frameset>
-  </frameset>
+
  
    <body>
       <h3>Edit Book</h3>
        
       <p style="color: red;">${errorString}</p>
        
-      <form method="POST" action="${pageContext.request.contextPath}/editBook">
+      <form method="POST" action="/editBook">
          <table border="0">
             <tr>
                <td>Item ID</td>

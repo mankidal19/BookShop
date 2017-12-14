@@ -44,7 +44,7 @@ public class viewBooks extends HttpServlet {
          
         // Forward to /WEB-INF/views/productListView.jsp
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("viewBookList.jsp");
+                .getRequestDispatcher("/viewBookList.jsp");
         dispatcher.forward(request, response);
     }
  
