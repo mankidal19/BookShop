@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import db_conn.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.MyUtils;
 
 @WebServlet(urlPatterns = { "/addBook" })
@@ -72,6 +74,8 @@ public class addBook extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
                 errorString = e.getMessage();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(addBook.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
  

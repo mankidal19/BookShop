@@ -13,24 +13,24 @@
    </head>
 
  
-   <body>
+   <body bgcolor="E9F946">
       <h3>Edit Book</h3>
        
       <p style="color: red;">${errorString}</p>
        
-      <form method="POST" action="/editBook">
+      <form id="editBook" name="editBook" method="POST" action="/editBook">
          <table border="0">
             <tr>
                <td>Item ID</td>
-               <td><input type="text" name="id" value="${book.itemID}" readonly=""/></td>
+               <td><input type="text" name="itemID" value="${book.itemID}" readonly=""/></td>
             </tr>
             <tr>
                <td>Short Description</td>
-               <td><input type="text" name="shortDescription" value="${book.shortDescription}" /></td>
+               <td><textarea form="editBook" cols="50" rows="3" name="shortDescription" value="${book.shortDescription}" />${book.shortDescription}</textarea></td>
             </tr>
             <tr>
                <td>Long Description</td>
-               <td><input type="text" name="longDescription" value="${book.longDescription}" /></td>
+               <td><textarea form="editBook" cols="50" rows="5" name="longDescription" value="${book.longDescription}" />${book.longDescription}</textarea></td>
             </tr>
             <tr>
                <td>Type</td>
@@ -43,7 +43,7 @@
             <tr>
                <td colspan="2">                   
                    <input type="submit" value="Submit" />
-                   <a href="viewBooks">Cancel</a>
+                   <a href="/viewBooks">Cancel</a>
                </td>
             </tr>
          </table>

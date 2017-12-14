@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import db_conn.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.MyUtils;
 
  
@@ -44,6 +46,8 @@ public class editBook extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(editBook.class.getName()).log(Level.SEVERE, null, ex);
         }
  
         // If no error.
@@ -76,9 +80,9 @@ public class editBook extends HttpServlet {
         String longDesc = (String) request.getParameter("longDescription");
         String type = (String) request.getParameter("type");
         String priceStr = (String) request.getParameter("price");
-        float price = 0;
+        double price = 0;
         try {
-            price = Float.parseFloat(priceStr);
+            price = Double.parseDouble(priceStr);
         } catch (Exception e) {
         }
         CatalogItem book = new CatalogItem(id, shortDesc, longDesc, price, type);
@@ -90,6 +94,8 @@ public class editBook extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(editBook.class.getName()).log(Level.SEVERE, null, ex);
         }
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);

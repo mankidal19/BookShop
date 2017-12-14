@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import db_conn.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/deleteBook" })
@@ -41,7 +43,9 @@ public class deleteBook extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
-        } 
+        } catch (ClassNotFoundException ex) { 
+            Logger.getLogger(deleteBook.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
         // If has an error, redirecte to the error page.
         if (errorString != null) {

@@ -85,9 +85,10 @@ public class DBUtils {
        return list;
     }
 
-     public static void insertBook(Connection conn, CatalogItem book) throws SQLException {
+     public static void insertBook(Connection conn, CatalogItem book) throws SQLException, ClassNotFoundException {
         String sql = "Insert into catalogitem(itemID, shortDescription, longDescription, cost, bookType) values (?,?,?,?,?)";
- 
+        conn = ConnectionUtils.getConnection();
+       
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         pstm.setString(1, book.getItemID());
@@ -100,9 +101,10 @@ public class DBUtils {
         pstm.executeUpdate();
     }
  
-    public static CatalogItem findBook(Connection conn, String code) throws SQLException {
+    public static CatalogItem findBook(Connection conn, String code) throws SQLException, ClassNotFoundException {
         String sql = "Select * from catalogitem where itemID=?";
- 
+        conn = ConnectionUtils.getConnection();
+       
         PreparedStatement pstm = conn.prepareStatement(sql);
         pstm.setString(1, code);
  
@@ -123,9 +125,10 @@ public class DBUtils {
         return null;
     }
  
-    public static void updateBook(Connection conn, CatalogItem book) throws SQLException {
+    public static void updateBook(Connection conn, CatalogItem book) throws SQLException, ClassNotFoundException {
         String sql = "Update catalogitem set shortDescription=?, longDescription=?, cost=?, bookType=? where itemID=?";
- 
+        conn = ConnectionUtils.getConnection();
+       
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         pstm.setString(5, book.getItemID());
@@ -138,9 +141,10 @@ public class DBUtils {
         pstm.executeUpdate();
     }
  
-    public static void deleteBook(Connection conn, String code) throws SQLException {
+    public static void deleteBook(Connection conn, String code) throws SQLException, ClassNotFoundException {
         String sql = "delete from catalogitem where itemID=?";
- 
+        conn = ConnectionUtils.getConnection();
+       
         PreparedStatement pstm = conn.prepareStatement(sql);
  
         pstm.setString(1, code);
